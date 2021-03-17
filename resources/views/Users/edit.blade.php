@@ -1,7 +1,7 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Coders Free')
+@section('title', 'Parrilla Yoha')
 
 @section('content_header')
     <h1>Asignar un rol</h1>
