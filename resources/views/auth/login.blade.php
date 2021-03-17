@@ -42,6 +42,7 @@
         color: #fff;
         font-size: 20px;
 
+
     &:after{
          content: "";
          background-image: url(http://simpleicon.com/wp-content/uploads/multy-user.png);
@@ -139,7 +140,6 @@
     }
 </style>
 
-
     <x-jet-validation-errors class="mb-4" />
 
     @if (session('status'))
@@ -155,7 +155,7 @@
 
         <fieldset>
 
-        <legend class="legend">Iniciar sesiòn</legend>
+        <legend class="legend text-center">Iniciar sesión</legend>
 
         <div class="input">
             <x-jet-label for="email" value="{{ __('Correo') }}" />

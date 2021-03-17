@@ -14,3 +14,5 @@ Route::resource('users',\App\Http\Controllers\UserController::class)
 
 Route::get('Users/Index',[UserController::class,'index'])->name('indexUsuario');
 Route::get('Users/Index/{id}', [UserController::class,'edit'])->name('usuarioEditar');
+
+

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\InsumosController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VentasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 /*
@@ -18,6 +20,14 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/views', function () {
+    return view('index');
+})->name('usuario');
+
 
 Route::get('empleados/Listar', [EmpleadoController::class, 'Listar'])->name('empleadoIndex');
 Route::delete('empleados/{empleado}',[EmpleadoController::class, 'eliminar'])->name('empleadoEliminar');
@@ -28,7 +38,13 @@ Route::put('empleados/{empleado}',[EmpleadoController::class,'actualizar'])->nam
 
 
 
+Route::get('ventas/crear',[VentasController::class,'ventaCrearVista'])->name('vistaCrearVenta');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/index', function () {
-    return view('index');
-})->name('usuario');
+
+Route::get('ventas/Listar',[VentasController::class,'Index'])->name('vistaVenta');
+
+
+
+Route::get('insumos/Listar',[InsumosController::class,'Listar'])->name('listarInsumo');
+
+
