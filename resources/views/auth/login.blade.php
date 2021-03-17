@@ -171,9 +171,9 @@
             <span><i class="fa fa-lock"></i></span>
         </div>
 
-
-            <button type="submit" class="submit"><i class="fa fa-long-arrow-right"></i></button>
-
+            <x-jet-button class="ml-4">
+                {{ __('Ingresar') }}
+            </x-jet-button>
         </fieldset>
 
 

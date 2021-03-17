@@ -20,14 +20,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/views', function () {
-    return view('index');
-})->name('usuario');
-
 
 Route::get('empleados/Listar', [EmpleadoController::class, 'Listar'])->name('empleadoIndex');
 Route::delete('empleados/{empleado}',[EmpleadoController::class, 'eliminar'])->name('empleadoEliminar');
@@ -42,7 +34,6 @@ Route::get('ventas/crear',[VentasController::class,'ventaCrearVista'])->name('vi
 
 
 Route::get('ventas/Listar',[VentasController::class,'Index'])->name('vistaVenta');
-
 
 
 Route::get('insumos/Listar',[InsumosController::class,'Listar'])->name('listarInsumo');
