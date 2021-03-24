@@ -16,6 +16,7 @@ use App\Http\Controllers\EmpleadoController;
 |
 */
 
+
 Route::get('/', function () {
     return view('auth.login');
 });

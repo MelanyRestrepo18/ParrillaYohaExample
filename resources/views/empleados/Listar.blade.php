@@ -32,13 +32,20 @@
                     <td>{{$empleado->email}}</td>
                     <td>{{$empleado->cargoEmpleado->nombre}}</td>
                     <td>
+
                         <form action="{{route('empleadoEliminar', $empleado->id)}}" method="post">
+
                             <a href=""><i class="fas fa-info-circle fa-lg text-success"></i></a>
 
-                            <a href="{{route('empleadoFormulario', $empleado )}}"><i class="fas fa-user-edit fa-lg" style="margin-left: 20px; margin-right: 20px;"></i></a>
+                            @can('empleadoFormulario')
+                            <a href="{{route('empleadoFormulario', $empleado )}}"><i class="fas fa-user-edit fa-lg" ></i></a>
+                            @endcan
                             @csrf @method('DELETE')
+                            @can('empleadoEliminar')
                             <button type="submit" style="border: none"><i class="fas fa-trash-alt fa-lg text-danger"></i></button>
+                            @endcan
                         </form>
+
                     </td>
                 </tr>
             @empty

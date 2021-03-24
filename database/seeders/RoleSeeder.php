@@ -21,7 +21,7 @@ class RoleSeeder extends Seeder
         $role2 = Role::create(['name' => 'Mesero']);
         $role3 = Role::create(['name' => 'Cajero']);
 
-        Permission::create(['name' =>'empleadoIndex'])->syncRoles([$role1]);
+        Permission::create(['name' =>'empleadoIndex'])->syncRoles([$role1, $role2 ,$role3]);
         Permission::create(['name' =>'empleadoEliminar'])->syncRoles([$role1]);
         Permission::create(['name' =>'empleadocrear'])->syncRoles([$role1]);
         Permission::create(['name' =>'empleadoFormulario'])->syncRoles([$role1]);
@@ -29,9 +29,15 @@ class RoleSeeder extends Seeder
         Permission::create(['name' =>'empleadoActualizar'])->syncRoles([$role1]);
 
 
-        Permission::create(['name' =>'listarInsumo']);
+        Permission::create(['name' =>'admin.users.index'])->syncRoles([$role1]);
+        Permission::create(['name' =>'admin.users.edit'])->syncRoles([$role1]);
+        Permission::create(['name' =>'admin.users.update'])->syncRoles([$role1]);
 
-        Permission::create(['name' =>'vistaCrearVenta']);
+
+
+        Permission::create(['name' =>'listarInsumo'])->syncRoles([$role1,$role2 ,$role3]);
+
+        Permission::create(['name' =>'vistaCrearVenta'])->syncRoles([$role1, $role2 ,$role3 ]);
 
     }
 }

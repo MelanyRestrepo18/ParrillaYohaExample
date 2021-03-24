@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:empleadoIndex')->only('Listar');
+        $this->middleware('can:empleadoEliminar')->only('eliminar');
+        $this->middleware('can:empleadocrear')->only('crear');
+        $this->middleware('can:empleadoFormulario')->only('formulario');
+        $this->middleware('can:empleadoEditar')->only('formularioEditar');
+        $this->middleware('can:empleadoActualizar')->only('actualizar');
+
+    }
     public function Listar(){
         $titulo = "CrudEmpleados";
         $empleados = empleado::orderBy('id','DESC')->paginate();

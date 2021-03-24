@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 Route::get('',[HomeController::class,'index']);
 
 
+
 Route::resource('users', UserController::class)->only(['index','edit','update'])->names('admin.users');
 
 

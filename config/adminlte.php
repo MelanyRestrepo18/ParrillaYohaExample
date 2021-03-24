@@ -85,8 +85,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
 
     /*
@@ -126,9 +126,9 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-danger elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-dark navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -166,7 +166,7 @@ return [
     |
     */
 
-    'right_sidebar' => false,
+    'right_sidebar' => true,
     'right_sidebar_icon' => 'fas fa-cogs',
     'right_sidebar_theme' => 'dark',
     'right_sidebar_slide' => true,
@@ -187,7 +187,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -230,18 +230,21 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'Usuarios'],
+
         [
             'text'       => 'Usuarios',
             'icon' => 'fas fa-users fa-fw',
             'route'       => 'admin.users.index',
+            'can' => 'admin.users.index',
         ],
-        ['header' => 'Empleados'],
+
+
         [
             'text'        => 'empleados',
             'url'         => '',
             'icon'        => 'fas fa-address-card',
             'label_color' => 'success',
+            'can' => 'empleadoIndex',
             'submenu' => [
                 [
                     'text' => 'Listar',
@@ -252,11 +255,12 @@ return [
                     'text' => 'crear',
                     'url'  => 'empleados/formulario',
                     'icon' => 'fas fa-user-plus',
+                    'can' => 'empleadocrear',
                 ],
             ],
 
         ],
-        ['header' => 'Productos'],
+
         [
             'text' => '  Control de insumos',
             'url'  => 'insumos/Listar',
@@ -289,16 +293,18 @@ return [
                 ],
             ],
         ],
-        ['header' => 'Ventas'],
+
         [
             'text'       => 'Listar Venta',
             'icon' => 'far fa-money-bill-alt',
             'url'        => 'ventas/Listar',
+            'can' => 'listarInsumo',
         ],
         [
             'text'       => 'Crear Venta',
             'icon' => 'fas fa-cash-register',
             'url'        => 'ventas/crear',
+            'can' => 'vistaCrearVenta',
         ],
 
     ],
