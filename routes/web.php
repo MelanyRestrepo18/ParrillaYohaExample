@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\InsumosController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InsumoController;
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VentasController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 /*
@@ -22,6 +25,8 @@ Route::get('/', function () {
 });
 
 
+Auth::routes();
+
 Route::get('empleados/Listar', [EmpleadoController::class, 'Listar'])->name('empleadoIndex');
 Route::delete('empleados/{empleado}',[EmpleadoController::class, 'eliminar'])->name('empleadoEliminar');
 Route::post('empleados/crear',[EmpleadoController::class,'crear'])->name('empleadocrear');
@@ -34,9 +39,12 @@ Route::put('empleados/{empleado}',[EmpleadoController::class,'actualizar'])->nam
 Route::get('ventas/crear',[VentasController::class,'ventaCrearVista'])->name('vistaCrearVenta');
 
 
+
+
 Route::get('ventas/Listar',[VentasController::class,'Index'])->name('vistaVenta');
 
+Route::resource('insumos', InsumoController::class)->only(['Listar','edit','update'])->names('insumos');
 
-Route::get('insumos/Listar',[InsumosController::class,'Listar'])->name('listarInsumo');
+Route::get('insumos/Listar',[InsumoController::class,'Listar'])->name('listarInsumo');
 
 
