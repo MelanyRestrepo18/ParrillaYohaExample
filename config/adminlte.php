@@ -232,10 +232,21 @@ return [
         ],
 
         [
-            'text'       => 'Usuarios',
-            'icon' => 'fas fa-users fa-fw',
-            'route'       => 'admin.users.index',
+            'text'        => 'usuarios',
+            'url'         => '',
+            'icon'        => 'fas fa-users',
+            'label_color' => 'success',
             'can' => 'admin.users.index',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'route'       => 'admin.users.index',
+                    'icon' => 'fas fa-id-badge',
+                    'can' => 'admin.users.index',
+                ],
+
+            ],
+
         ],
 
 
@@ -260,11 +271,29 @@ return [
             ],
 
         ],
-
         [
-            'text' => '  Control de insumos',
-            'url'  => 'insumos/Listar',
-            'icon' => 'fas fa-utensils',
+            'text'        => ' Control de insumos',
+            'url'         => '',
+            'icon'        => 'fas fa-bone',
+            'label_color' => 'success',
+
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'insumos/Listar',
+                    'route'       => 'insumos.Listar',
+                    'icon' => 'fas fa-utensils',
+
+                ],
+                [
+                    'text' => 'Crear',
+                    'route'   => 'FormularioInsumo',
+                    'icon' => 'fas fa-plus',
+
+                ],
+
+            ],
+
         ],
 
         [
@@ -293,19 +322,30 @@ return [
                 ],
             ],
         ],
+        [
+            'text'        => ' Ventas',
+            'url'         => '',
+            'icon'        => 'fas fa-shopping-basket',
+            'label_color' => 'success',
 
-        [
-            'text'       => 'Listar Venta',
-            'icon' => 'far fa-money-bill-alt',
-            'url'        => 'ventas/Listar',
-            'can' => 'listarInsumo',
+            'submenu' => [
+                [
+                    'text'       => 'Listar Venta',
+                    'icon' => 'far fa-money-bill-alt',
+                    'url'        => 'ventas/Listar',
+                    'can' => 'listarInsumo',
+                ],
+                [
+                    'text'       => 'Crear Venta',
+                    'icon' => 'fas fa-cash-register',
+                    'url'        => 'ventas/crear',
+                    'can' => 'vistaCrearVenta',
+                ],
+
+            ],
+
         ],
-        [
-            'text'       => 'Crear Venta',
-            'icon' => 'fas fa-cash-register',
-            'url'        => 'ventas/crear',
-            'can' => 'vistaCrearVenta',
-        ],
+
 
     ],
     /*

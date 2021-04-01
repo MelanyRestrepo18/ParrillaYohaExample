@@ -11,7 +11,10 @@ class InsumoController extends Controller
     {
         $this->middleware('can:listarInsumo')->only('Listar');
     }
+    public function FormularioCrear(){
 
+        return view('insumos/crear');
+    }
     public function Listar(){
 
         return view('insumos/Listar' );
@@ -89,6 +92,6 @@ class InsumoController extends Controller
      */
     public function eliminar(Insumo $insumo){
         $insumo->delete();
-        return redirect('insumos/Listar')->with('mensaje','empleado eliminado');
+        return redirect('insumos/Listar')->with('mensaje','insumo eliminado');
     }
 }

@@ -38,7 +38,7 @@
                             <a href=""><i class="fas fa-info-circle fa-lg text-success"></i></a>
 
                             @can('empleadoFormulario')
-                            <a href="{{route('empleadoFormulario', $empleado )}}"><i class="fas fa-user-edit fa-lg" ></i></a>
+                            <a href="{{route('empleadoEditar', $empleado )}}"><i class="fas fa-user-edit fa-lg" ></i></a>
                             @endcan
                             @csrf @method('DELETE')
                             @can('empleadoEliminar')

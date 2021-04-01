@@ -5,9 +5,13 @@
 @section('content_header')
     <h1>Insumos</h1>
 @stop
-
+@method("POST")
 @section('content')
-
+    @if(session('mensaje'))
+        <div class="alert alert-success">
+            {{session('mensaje')}}
+        </div>
+    @endif
     @livewire('insumos.insumo-index')
 
 

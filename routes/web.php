@@ -43,8 +43,11 @@ Route::get('ventas/crear',[VentasController::class,'ventaCrearVista'])->name('vi
 
 Route::get('ventas/Listar',[VentasController::class,'Index'])->name('vistaVenta');
 
-Route::resource('insumos', InsumoController::class)->only(['Listar','edit','update'])->names('insumos');
 
 Route::get('insumos/Listar',[InsumoController::class,'Listar'])->name('listarInsumo');
+Route::get('insumos/crear',[InsumoController::class,'FormularioCrear'])->name('FormularioInsumo');
+Route::post('insumos/create',[InsumoController::class,'create'])->name('CrearInsumo');
+Route::delete('insumos/{insumo}',[InsumoController::class, 'eliminar'])->name('insumoEliminar');
+
 
 
