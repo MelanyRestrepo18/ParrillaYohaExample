@@ -28,7 +28,7 @@
                                 @csrf @method('DELETE')
 
                                 <button type="submit" class="btn btn-danger" style="border: none"><i class="fas fa-trash-alt fa-lg"></i>Eliminar</button>
-
+                                <a href="{{route('insumoEditar', $insumo ->id)}}"><i class="fas fa-user-edit fa-lg" ></i></a>
                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Listar" data-whatever="@mdo"> <i class="fas fa-plus-square"></i>  Agregar Insumo</button>
                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Entrada" data-whatever="@fat"><i class="fas fa-list"></i>  Listado de entradas</button>
 

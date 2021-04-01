@@ -48,6 +48,7 @@ Route::get('insumos/Listar',[InsumoController::class,'Listar'])->name('listarIns
 Route::get('insumos/crear',[InsumoController::class,'FormularioCrear'])->name('FormularioInsumo');
 Route::post('insumos/create',[InsumoController::class,'create'])->name('CrearInsumo');
 Route::delete('insumos/{insumo}',[InsumoController::class, 'eliminar'])->name('insumoEliminar');
-
+Route::get('insumos/formularioEditar/{id}', [InsumoController::class, 'formularioEditar'])->name('insumoEditar');
+Route::put('insumos/{insumo}',[InsumoController::class,'actualizar'])->name('insumoActualizar');
 
 

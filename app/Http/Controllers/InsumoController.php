@@ -15,6 +15,11 @@ class InsumoController extends Controller
 
         return view('insumos/crear');
     }
+    public function FormularioEditar($id){
+        $insumo = Insumo::find($id);
+
+        return view('insumos/editar',compact('insumo','insumo'));
+    }
     public function Listar(){
 
         return view('insumos/Listar' );
@@ -76,13 +81,20 @@ class InsumoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    public function actualizar(Insumo $insumo){
+        $campos=request()->validate([
+            'nombre'=>'required|min:3',
+            'estado' =>'required',
+            'medida' => 'required',
+            'stock_minimo'=>'required',
+            'cantidad'=>'required',
 
+        ]);
+        $insumo->update($campos);
+        return redirect('insumos/Listar')->with('mensaje', 'insumo actualizado');
+    }
 
     /**
      * Remove the specified resource from storage.
