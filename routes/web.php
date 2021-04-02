@@ -45,8 +45,10 @@ Route::get('ventas/Listar',[VentasController::class,'Index'])->name('vistaVenta'
 
 
 Route::get('insumos/Listar',[InsumoController::class,'Listar'])->name('listarInsumo');
+Route::get('insumos/entrada/{id}',[InsumoController::class,'FormularioEntrada'])->name('FormularioEntrada');
 Route::get('insumos/crear',[InsumoController::class,'FormularioCrear'])->name('FormularioInsumo');
 Route::post('insumos/create',[InsumoController::class,'create'])->name('CrearInsumo');
+Route::post('insumos/crearEntrada',[InsumoController::class,'crearEntrada'])->name('CrearEntrada');
 Route::delete('insumos/{insumo}',[InsumoController::class, 'eliminar'])->name('insumoEliminar');
 Route::get('insumos/formularioEditar/{id}', [InsumoController::class, 'formularioEditar'])->name('insumoEditar');
 Route::put('insumos/{insumo}',[InsumoController::class,'actualizar'])->name('insumoActualizar');

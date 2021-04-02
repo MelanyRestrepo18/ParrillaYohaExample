@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Insumo\Entrada;
 use App\Models\Insumo\Insumo;
 use Illuminate\Http\Request;
 
@@ -13,16 +14,22 @@ class InsumoController extends Controller
     }
     public function FormularioCrear(){
 
-        return view('insumos/crear');
+        $entradas = Entrada::all();
+        return view('insumos/crear', compact('entradas'));
     }
     public function FormularioEditar($id){
         $insumo = Insumo::find($id);
-
-        return view('insumos/editar',compact('insumo','insumo'));
+        return view('insumos/editar',compact('insumo'));
+    }
+    public function FormularioEntrada($id){
+        $insumo = Insumo::find($id);
+        $entradas = Entrada::where('idInsumo',$id)->get();
+        $total = Entrada::where('idInsumo',$id)->sum('cantidad');
+        return view('insumos/entrada',compact('insumo','entradas','total'));
     }
     public function Listar(){
 
-        return view('insumos/Listar' );
+        return view('insumos/Listar');
     }
     /**
      * Show the form for creating a new resource.
@@ -36,13 +43,29 @@ class InsumoController extends Controller
             'estado' =>'required',
             'medida' => 'required',
             'stock_minimo'=>'required',
-            'cantidad'=>'required',
+
+
 
         ]);
+
         Insumo::create($campos);
         return redirect('insumos/Listar')->with('mensaje','Insumo guardado');
     }
-
+    public function crearEntrada()
+    {
+        $campos=request()->validate([
+            'cantidad'=>'required',
+            'lote' =>'required',
+            'caducidad' => 'required',
+            'idInsumo' => 'required',
+        ]);
+        Entrada::create($campos);
+        return back()->with('mensaje','Entrada guardado');
+    }
+    public  function  findIdEntrada($id){
+        $idEntrada = Entrada::find($id);
+        return view('insumos/crear',compact('idEntrada'));
+}
     /**
      * Store a newly created resource in storage.
      *

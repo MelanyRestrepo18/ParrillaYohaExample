@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInsumoTable extends Migration
+class CreateEntradaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateInsumoTable extends Migration
      */
     public function up()
     {
-        Schema::create('insumo', function (Blueprint $table) {
+        Schema::create('entrada', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre',200);
-            $table->string('estado',200);
-            $table->string('medida',200);
-            $table->integer('stock_minimo');
-
+            $table->integer('cantidad');
+            $table->string('lote');
+            $table->date('caducidad');
+            $table->integer('idInsumo')->unsigned();
+            $table->foreign('idInsumo')->references('id')->on('insumo');
 
         });
     }
@@ -31,6 +31,6 @@ class CreateInsumoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('insumo');
+        Schema::dropIfExists('entrada');
     }
 }

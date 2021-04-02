@@ -4,6 +4,7 @@
 
 @section('content_header')
     <h1>Insumos</h1>
+
 @stop
 @method("POST")
 @section('content')

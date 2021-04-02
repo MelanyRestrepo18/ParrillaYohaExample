@@ -34,7 +34,6 @@ class RoleSeeder extends Seeder
         Permission::create(['name' =>'admin.users.update'])->syncRoles([$role1]);
 
 
-
         Permission::create(['name' =>'listarInsumo'])->syncRoles([$role1,$role2 ,$role3]);
 
         Permission::create(['name' =>'vistaCrearVenta'])->syncRoles([$role1, $role2 ,$role3 ]);

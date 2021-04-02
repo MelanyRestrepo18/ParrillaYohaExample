@@ -20,14 +20,13 @@ class InsumoSeeder extends Seeder
             'estado' => 'activo',
             'medida'=> 'kg',
             'stock_minimo'=> 6,
-            'cantidad'=> 15,
         ]);
         DB::table('insumo')->insert([
             'nombre'=>'pan hamburguesa',
             'estado' => 'activo',
             'medida'=> 'kg',
             'stock_minimo'=> 6,
-            'cantidad'=> 15,
+
         ]);
 
     }

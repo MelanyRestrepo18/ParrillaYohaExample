@@ -8,6 +8,7 @@
 
 @section('content')
     <div class="container">
+
         <form action="{{route('CrearInsumo')}}" method="post">
 
 
@@ -38,11 +39,7 @@
                 <input type="text" class="form-control" name="stock_minimo" id="stock_minimo" rows="2" value="{{old('stock_minimo')}}">
                 <small class="text-danger">{{$errors->first('stock_minimo')}}</small>
             </div>
-            <div class="form-group">
-                <label for="cantidad">cantidad</label>
-                <input type="text" class="form-control" name="cantidad" id="cantidad" placeholder="Ingrese la cantidad" value="{{old('cantidad')}}">
-                <small class="text-danger">{{$errors->first('cantidad')}}</small>
-            </div>
+
             <div class="form-group">
                 <label for="estado">estado</label>
                 <input type="text" class="form-control" name="estado" id="estado" placeholder="Ingrese el estado" value="{{old('estado')}}">
@@ -50,10 +47,11 @@
             </div>
 
 
+            </div>
         </form>
 
     </div>
-    </div>
+
 @stop
 
 @section('css')

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Insumos;
 
+use App\Models\Insumo\Entrada;
 use App\Models\Insumo\Insumo;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -17,10 +18,11 @@ class InsumoIndex extends Component
     public function render()
 
     {
+        $entradas = Entrada::all();
         $insumos = insumo::where('nombre','LIKE','%'.$this->search.'%')
             ->paginate();//default: 15
 
 
-        return view('livewire.insumos.insumo-index', compact('insumos'));
+        return view('livewire.insumos.insumo-index', compact('insumos','entradas'));
     }
 }

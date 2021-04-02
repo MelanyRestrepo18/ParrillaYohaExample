@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+
     <div class="container">    <form action="{{route('empleadocrear')}}" method="post">
             @method("POST")
             <div class="row">
@@ -14,6 +15,7 @@
                     <button type="submit" class="btn btn-primary ">Guardar</button>
                 </div>
             </div>
+
             @csrf
             @if($errors->any())
                 @foreach($errors->all() as $error)
@@ -54,8 +56,9 @@
             </div>
 
         </form>
+
     </div>
-    </div>
+
 @stop
 
 @section('css')
